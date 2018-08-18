@@ -1,0 +1,33 @@
+group 'com.it'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // https://mvnrepository.com/artifact/org.testng/testng
+    testCompile group: 'org.testng', name: 'testng', version: '6.14.3'
+    // https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-server
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-server', version: '3.14.0'
+
+
+}
+task chromeTest(type:Test){
+    systemProperty("webdriver.chrome.driver", "drivers/chromedriver.exe")
+    systemProperty("driver", "chrome")
+    useTestNG{
+        suites "testNg.xml"
+    }
+}
+task firefoxTest(type:Test) {
+    systemProperty("webdriver.gecko.driver", "drivers/geckodriver.exe")
+    systemProperty("driver", "gecko")
+    useTestNG {
+        suites "testNg.xml"
+    }
+}
