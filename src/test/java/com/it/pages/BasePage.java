@@ -1,12 +1,12 @@
 package com.it.pages;
 
-import com.it.driver.DriverFactory;
-import org.openqa.selenium.WebDriver;
 
+
+import com.it.driver.MyDriver;
 import org.openqa.selenium.support.PageFactory;
 
 public abstract class BasePage {
-    protected static WebDriver driver = DriverFactory.getDriver();
+    protected static MyDriver driver = MyDriver.getDriver();
 
 
     public BasePage() {

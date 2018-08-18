@@ -8,7 +8,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import static com.it.common.Constants.*;
 
 public class DriverFactory {
-    public static WebDriver getDriver() {
+    static WebDriver getDriver() {
         String property = System.getProperty("driver");
         WebDriver driver = null;
         if (property != null) {
